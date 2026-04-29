@@ -1,0 +1,135 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2944691374915105 0.3198150474431251 -0.9005588612045066 1.5929560089051968
+  position -1.089048597759977 2.2406122087337885 1.4645737595850574
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF Controller E-puck {
+  hidden position_0_0 87714.75125841968
+  hidden position_0_1 100317.50569581322
+  hidden linearVelocity_0 -0.02375330227251488 -0.05018426856865629 -1.2605873867689118e-08
+  hidden angularVelocity_0 0.002880262640372135 -0.0013767501703729301 0.10296526220557987
+  hidden rotation_1 0 -1 0 4.558805751067753
+  hidden linearVelocity_1 -0.022615471127674393 -0.04777870811288564 -1.337501487320093e-09
+  hidden angularVelocity_1 2.377629711032006 -1.125306498080132 0.1048369623606806
+  hidden rotation_2 0 1 0 3.494362622135106
+  hidden linearVelocity_2 -0.02490614763924134 -0.05261820670288139 1.2414385963762175e-09
+  hidden angularVelocity_2 2.642266910715974 -1.2507089022218008 0.10517374033021841
+  translation -0.5863923149921397 0.3899676884087624 -6.439159044216783e-05
+  rotation -0.00045344450474528106 -0.00037354176062083023 -0.9999998274273021 2.010953750049738
+  controller "epuck_starter"
+  controllerArgs [
+    ""
+  ]
+  emitter_channel 20
+  receiver_channel 19
+  groundSensorsSlot [
+    E-puckGroundSensors {
+      translation 0 0.28 0
+    }
+  ]
+}
+RectangleArena {
+  floorSize 1.5 1.5
+  floorTileSize 1.5 1.5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/arena.png"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+  wallThickness 0.05
+  wallHeight 0.05
+  wallAppearance BrushedAluminium {
+    colorOverride 1 0.5 0.4
+  }
+}
+DEF obstacle3 Solid {
+  translation 0 0.56 0.02
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.6 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF Box3 Cylinder {
+        height 0.04
+        radius 0.03
+      }
+    }
+  ]
+  name "YellowBox"
+  boundingObject USE Box3
+}
+DEF GA Robot {
+  translation 0.47 0.16 0
+  rotation 0 0 1 1.57
+  children [
+    Emitter {
+      channel 19
+    }
+    Display {
+      width 500
+      height 150
+    }
+    Receiver {
+      channel 20
+    }
+  ]
+  name "Supervisor"
+  controller "supervisorGA_starter"
+  supervisor TRUE
+}
+DEF obstacle1 Solid {
+  translation -1.03525e-09 -0.58 0.02
+  rotation 0 0 1 0.785394
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.5 0.3
+        roughness 1
+        metalness 0
+      }
+      geometry DEF Box1 Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "GreenBox"
+  boundingObject USE Box1
+}
+DEF obstacle2 Solid {
+  translation -0.5 0 0.02
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 0.9
+        roughness 1
+        metalness 0
+      }
+      geometry DEF Box2 Cylinder {
+        height 0.04
+        radius 0.03
+      }
+    }
+  ]
+  name "BlueCylinder"
+  boundingObject USE Box2
+}

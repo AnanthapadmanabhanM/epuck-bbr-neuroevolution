@@ -1,0 +1,65 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position -0.05316423379598212 -0.04782017582088194 4.3738796267197575
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  translation -0.01 0 0
+  floorSize 2.2 1.8
+  floorTileSize 2.2 1.8
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "../../circuit_line_lab1.jpg"
+        ""
+        ""
+        ""
+      ]
+    }
+  }
+  wallThickness 0.025
+  wallHeight 0.05
+}
+WoodenBox {
+  translation -0.27577 0.30604 0.05
+  rotation 0 0 1 4.07987e-06
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.542945 -0.538854 0.05
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  hidden position_0_0 23856.75098223821
+  hidden position_0_1 35197.957930692784
+  hidden linearVelocity_0 -0.00724659119361275 0.011013868858921836 -2.0554130008412258e-07
+  hidden angularVelocity_0 -0.01032845776883912 -0.00681979498494114 -0.2456767902677727
+  hidden rotation_1 0 0.9999999999999999 0 5.779556184498696
+  hidden linearVelocity_1 -0.010768613110934605 0.016422030689161995 7.571876355183369e-08
+  hidden angularVelocity_1 -0.8466338044473589 -0.5550842545348802 -0.24591681992844708
+  hidden rotation_2 0 -1 0 0.4461601272590137
+  hidden linearVelocity_2 -0.0037924187678932625 0.005710995498086619 -2.623484224307035e-07
+  hidden angularVelocity_2 -0.2600627510254947 -0.17306154177809385 -0.2456141450370194
+  translation 0.6170040654574958 -0.7324005264793303 -6.400157384034953e-05
+  rotation -0.000620201688209757 0.0003380344207339222 0.9999997505412671 2.1439955786632123
+  controller "bbr_line_avoid"
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}

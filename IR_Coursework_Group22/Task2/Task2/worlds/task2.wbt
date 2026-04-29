@@ -1,0 +1,89 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 2.974104793820059e-17 -6.344756893482793e-16 2.8574244781245497
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 1 1
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "../../lab2 materials/floor_texture_lab2.png"
+      ]
+    }
+  }
+}
+WoodenBox {
+  translation 0.1 0.1 0.1
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.1 -0.1 0.1
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+DEF Light1 SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.3
+  cutOffAngle 0.4
+  direction 0 -1 0
+  location 0.45 0.2 0.45
+}
+DEF Light2 SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.3
+  cutOffAngle 0.4
+  direction 0 -1 0
+  location -0.45 0.2 0.45
+  on FALSE
+}
+DEF Light3 SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.3
+  cutOffAngle 0.4
+  direction 0 -1 0
+  location -0.45 0.2 -0.45
+  on FALSE
+}
+DEF Light4 SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.3
+  cutOffAngle 0.4
+  direction 0 -1 0
+  location 0.45 0.2 -0.45
+  on FALSE
+}
+DEF Controller E-puck {
+  hidden position_0_0 1209.1662571123354
+  hidden position_0_1 1158.440493230196
+  hidden linearVelocity_0 2.7000354753591356e-05 0.00025751125702368693 -3.728557825386747e-05
+  hidden angularVelocity_0 -0.016875329788556086 0.0028855789612307536 -2.2953903619979568
+  hidden translation_1 0 0.025999999999999975 0.02
+  hidden rotation_1 0 1 0 5.661415133711017
+  hidden linearVelocity_1 0.01205847663193588 0.057142751075418635 9.230963733262411e-07
+  hidden angularVelocity_1 -3.090707172395103 0.6545020609843608 -2.2919712663492953
+  hidden translation_2 0 -0.025999999999999957 0.02
+  hidden rotation_2 0 -1 0 5.863652604471033
+  hidden linearVelocity_2 -0.01199315874977901 -0.056466805724006676 8.013148801197432e-07
+  hidden angularVelocity_2 3.0569568707526775 -0.648728891218038 -2.291779080956515
+  translation -0.42245747423932206 0.42533359175942514 -4.841180354563275e-05
+  rotation -1.9886719971911807e-05 5.235320034260374e-05 -0.9999999984318303 -1.3253941760415167
+  controller "task2_controller"
+}
+DEF Supervisor Robot {
+  controller "supervisor_task2"
+  supervisor TRUE
+}
